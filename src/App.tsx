@@ -140,10 +140,14 @@ export default function App() {
   return (
     <main className="min-h-screen bg-[#071321] px-3 py-3 text-white sm:px-6 sm:py-6 lg:px-10 lg:py-10">
       <section className={`relative mx-auto flex min-h-[calc(100vh-1.5rem)] max-w-[1500px] overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-br ${slide.theme} shadow-[0_30px_100px_rgba(0,0,0,0.45)] transition-colors duration-700 sm:min-h-[calc(100vh-3rem)] lg:min-h-[calc(100vh-5rem)]`}>
-        {activeSlide === 0 && (
+        {(activeSlide === 0 || activeSlide === 1) && (
           <img
-            src="/uploads/slide_1.jpg"
-            alt="Fachada moderna combinada com desenho técnico arquitetônico em blueprint"
+            src={activeSlide === 0 ? '/uploads/slide_1.jpg' : '/uploads/slide_2.jpg'}
+            alt={
+              activeSlide === 0
+                ? 'Fachada moderna combinada com desenho técnico arquitetônico em blueprint'
+                : 'Imagem arquitetônica do Slide 02'
+            }
             className="absolute inset-0 h-full w-full object-cover object-center opacity-70 mix-blend-screen"
           />
         )}
